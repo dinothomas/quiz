@@ -1,0 +1,27 @@
+:host {
+  .rank-list {
+    width: 1000px;
+    height: calc(100vh - 132px);
+    margin-top: 50px;
+    margin-left: calc((100% - 1000px) / 2);
+    margin-bottom: 50px;
+    overflow-y: auto;
+    table {
+      width: 100%;
+    }
+    .table-wrapper {
+      width: 100%;
+      max-height: 200px;
+      overflow: scroll;
+    }
+  }
+  .center-btn {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  th.mat-sort-header-sorted {
+    color: black;
+  }
+}

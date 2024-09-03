@@ -1,0 +1,19 @@
+<mat-card class="reg-card">
+  <form class="example-form">
+    <div class="field">
+      <mat-form-field class="input-field" appearance="fill">
+        <mat-label>Name</mat-label>
+        <input type="text" matInput [(ngModel)]="name" name="name"/>
+      </mat-form-field>
+    </div>
+    <div class="field">
+      <mat-form-field class="input-field" appearance="fill">
+        <mat-label>UID</mat-label>
+        <input type="text" (change)="this.uid = this.uid.toUpperCase()" matInput [(ngModel)]="uid" name="uid"/>
+      </mat-form-field>
+    </div>
+    <div class="field">
+        <button mat-raised-button color="accent" (click)="goToQuestions()" [disabled]="!uid || !name">Start</button>
+    </div>
+  </form>
+</mat-card>

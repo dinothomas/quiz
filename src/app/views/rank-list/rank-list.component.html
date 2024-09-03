@@ -1,0 +1,59 @@
+<mat-card class="rank-list">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="no">
+      <th mat-header-cell *matHeaderCellDef>No.</th>
+      <td mat-cell *matCellDef="let element; let i = index">{{ i + 1}}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="uid">
+      <th mat-header-cell *matHeaderCellDef>UID</th>
+      <td mat-cell *matCellDef="let element">{{ element.uid }}</td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="noAttempt">
+      <th mat-header-cell *matHeaderCellDef>No of Attempts</th>
+      <td mat-cell *matCellDef="let element">{{ element.noAttempt }}</td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="noQuestions">
+      <th mat-header-cell *matHeaderCellDef>No of Questions</th>
+      <td mat-cell *matCellDef="let element">{{ element.noQuestions }}</td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="score">
+      <th mat-header-cell *matHeaderCellDef>Score</th>
+      <td mat-cell *matCellDef="let element">{{ element.score }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr
+      mat-row
+      *matRowDef="let row; columns: displayedColumns; let i = index"
+    ></tr>
+  </table>
+  <mat-paginator
+    [pageSizeOptions]="[8, 10, 20, 100, 200, 1000]"
+    showFirstLastButtons
+    aria-label="Select page of periodic elements"
+  >
+  </mat-paginator>
+  <div class="center-btn">
+    <button mat-raised-button color="accent" (click)="goToReg()">
+      Try Again
+    </button>
+  </div>
+</mat-card>

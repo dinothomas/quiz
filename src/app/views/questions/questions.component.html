@@ -1,0 +1,99 @@
+<ng-container *ngIf="!showScoreBoard">
+  <div class="timer">
+    <button
+      mat-fab
+      color="primary"
+      aria-label="Example icon button with a delete icon"
+    >
+      {{ pendingTime }}
+    </button>
+  </div>
+
+  <mat-card class="reg-card">
+    <div class="title">Question {{ index + 1 }}</div>
+    <div class="question">{{ currentQuestion.question }}</div>
+  </mat-card>
+
+  <div class="text-answers">
+    <div class="answer-row">
+      <div class="left-col">
+        <button
+          class="text-answer"
+          mat-raised-button
+          [ngClass]="checkClass(0)"
+          (click)="checkAnswer(0)"
+        >
+          {{ currentQuestion.options[0] }}
+        </button>
+      </div>
+      <div class="right-col">
+        <button
+          class="text-answer"
+          mat-raised-button
+          [ngClass]="checkClass(1)"
+          (click)="checkAnswer(1)"
+        >
+          {{ currentQuestion.options[1] }}
+        </button>
+      </div>
+    </div>
+    <div class="answer-row">
+      <div class="left-col">
+        <button
+          class="text-answer"
+          mat-raised-button
+          [ngClass]="checkClass(2)"
+          (click)="checkAnswer(2)"
+        >
+          {{ currentQuestion.options[2] }}
+        </button>
+      </div>
+      <div class="right-col">
+        <button
+          class="text-answer"
+          mat-raised-button
+          [ngClass]="checkClass(3)"
+          (click)="checkAnswer(3)"
+        >
+          {{ currentQuestion.options[3] }}
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="next-btn-div" *ngIf="isHeAnswered">
+    <button
+      mat-raised-button
+      (click)="getNextQuestion()"
+      class="next-btn"
+      color="accent"
+    >
+      Next Question
+    </button>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="showScoreBoard">
+  <mat-card class="reg-card">
+    <div class="results">
+      <div class="result-row">
+        <div class="des">Number of questions answered:</div>
+        <div class="score">{{ noOfQuestionsAnswered }}</div>
+      </div>
+      <div class="result-row">
+        <div class="des">No of right answers:</div>
+        <div class="score">{{ noOfRightAnswer }}</div>
+      </div>
+      <div class="result-row">
+        <div class="des">No of wrong answers:</div>
+        <div class="score">{{ noOfWrongAnswer }}</div>
+      </div>
+      <div class="result-row">
+        <div class="des">Total score</div>
+        <div class="score">{{ score }}</div>
+      </div>
+    </div>
+  </mat-card>
+  <div class="next-btn-div">
+    <button mat-raised-button class="next-btn" color="accent" (click)="goToRankList()">Rank List</button>
+  </div>
+</ng-container>

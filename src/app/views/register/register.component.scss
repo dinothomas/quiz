@@ -1,0 +1,16 @@
+:host {
+  .reg-card {
+    width: 600px;
+    height: 215px;
+    margin-top: calc((100vh - 215px) / 2);
+    margin-left: calc((100% - 600px) / 2);;
+  }
+  .field {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    .input-field {
+        width: 300px;
+    }
+  }
+}
